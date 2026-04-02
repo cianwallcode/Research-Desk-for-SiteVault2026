@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SiteVault 2026 | Research Desk</title>
+    <title>Research Desk 2026 | Architectural Inventory</title>
     <style>
         :root {
             --dark: #1a1a1a;
             --navy: #2c3e50;
             --accent: #e67e22;
-            --glass: rgba(255, 255, 255, 0.95);
             --border: #d1d8e0;
         }
 
@@ -37,31 +36,11 @@
             z-index: 10;
         }
 
-        .brand {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: -1px;
-            margin-bottom: 5px;
-        }
-
-        .version {
-            font-size: 10px;
-            letter-spacing: 2px;
-            color: var(--accent);
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
+        .brand { font-size: 24px; font-weight: 900; letter-spacing: -1px; margin-bottom: 5px; }
+        .version { font-size: 10px; letter-spacing: 2px; color: var(--accent); margin-bottom: 40px; text-transform: uppercase; }
 
         .control-group { margin-bottom: 30px; }
-
-        label {
-            display: block;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #bdc3c7;
-            margin-bottom: 10px;
-        }
+        label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #bdc3c7; margin-bottom: 10px; }
 
         select {
             width: 100%;
@@ -75,116 +54,60 @@
             cursor: pointer;
         }
 
-        select:focus { border-color: var(--accent); }
-
         .helper-text {
-            font-size: 12px;
-            line-height: 1.6;
-            color: #ecf0f1;
-            background: rgba(0,0,0,0.2);
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: auto;
+            font-size: 12px; line-height: 1.6; color: #ecf0f1;
+            background: rgba(0,0,0,0.2); padding: 15px; border-radius: 4px; margin-top: auto;
         }
 
         /* Main Workspace */
-        #workspace {
-            flex-grow: 1;
-            padding: 50px;
-            overflow-y: auto;
-            display: flex;
-            justify-content: center;
-        }
+        #workspace { flex-grow: 1; padding: 50px; overflow-y: auto; display: flex; justify-content: center; }
 
         .report-sheet {
-            background: white;
-            width: 100%;
-            max-width: 900px;
-            min-height: 1100px;
-            padding: 80px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            border-top: 8px solid var(--navy);
-            position: relative;
+            background: white; width: 100%; max-width: 900px; min-height: 1100px;
+            padding: 80px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--navy); position: relative;
         }
 
         .report-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 50px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            display: flex; justify-content: space-between; align-items: flex-end;
+            margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee;
         }
 
-        .portal-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 30px 0;
-        }
+        .portal-section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--navy); margin-bottom: 15px; display: block; }
+        
+        .portal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 30px; }
 
         .portal-card {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: transform 0.2s;
-            border: 1px solid #eee;
+            display: flex; flex-direction: column; padding: 15px; text-decoration: none;
+            border-radius: 4px; transition: all 0.2s; border: 1px solid #eee;
         }
+        .portal-card:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-color: #ddd; }
 
-        .portal-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .portal-title { font-weight: bold; font-size: 11px; margin-bottom: 3px; }
+        .portal-desc { font-size: 10px; color: #7f8c8d; line-height: 1.3; }
 
-        .portal-title { font-weight: bold; font-size: 12px; margin-bottom: 5px; }
-        .portal-desc { font-size: 11px; color: #7f8c8d; }
+        /* Portal Themes */
+        .p-plan { border-left: 4px solid #e74c3c; background: #fff5f5; grid-column: span 2; }
+        .p-land { border-left: 4px solid #005596; background: #f0f7ff; }
+        .p-flood { border-left: 4px solid #007a3d; background: #f0fff7; }
+        .p-hist { border-left: 4px solid #8e735b; background: #faf7f4; }
+        .p-soil { border-left: 4px solid #5d8233; background: #f7faf2; }
 
-        /* Portal Colors */
-        .p-land { border-left: 5px solid #005596; background: #f0f7ff; }
-        .p-flood { border-left: 5px solid #007a3d; background: #f0fff7; }
-        .p-hist { border-left: 5px solid #8e735b; background: #faf7f4; }
-        .p-soil { border-left: 5px solid #5d8233; background: #f7faf2; }
-
-        table {
-            width: 100%;
-            margin: 30px 0;
-            border-collapse: collapse;
-        }
-
-        td {
-            padding: 15px 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
-        }
-
+        table { width: 100%; margin: 20px 0; border-collapse: collapse; }
+        td { padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
         .label { color: #95a5a6; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; width: 35%; }
 
         .field-notes {
-            margin-top: 40px;
-            padding: 30px;
-            background: #f9f9f9;
-            border-radius: 4px;
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            line-height: 1.8;
-            color: #34495e;
-            border: 1px solid #eee;
+            margin-top: 30px; padding: 25px; background: #f9f9f9; border-radius: 4px;
+            font-family: 'Georgia', serif; font-style: italic; line-height: 1.8;
+            color: #34495e; border: 1px solid #eee;
         }
 
         .generate-btn {
-            width: 100%;
-            padding: 20px;
-            background: var(--navy);
-            color: white;
-            border: none;
-            font-weight: bold;
-            font-size: 14px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            margin-top: 50px;
+            width: 100%; padding: 20px; background: var(--navy); color: white; border: none;
+            font-weight: bold; font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+            cursor: pointer; margin-top: 50px;
         }
-
-        .generate-btn:hover { background: var(--dark); }
 
         @media print {
             #sidebar { display: none; }
@@ -193,52 +116,46 @@
             .generate-btn { display: none; }
         }
 
-        .empty-state {
-            text-align: center;
-            margin-top: 200px;
-            color: #bdc3c7;
-        }
+        .empty-state { text-align: center; margin-top: 200px; color: #bdc3c7; }
     </style>
 </head>
 <body>
 
     <div id="sidebar">
-        <div class="brand">SITEVAULT</div>
-        <div class="version">Research Desk // 2026</div>
+        <div class="brand">RESEARCH DESK</div>
+        <div class="version">Geospatial Platform // 2026</div>
 
         <div class="control-group">
-            <label>Geospatial Inventory</label>
+            <label>Precedent Inventory</label>
             <select id="site-selector" onchange="loadReport(this.value)">
-                <option value="">-- Select Precedent --</option>
+                <option value="">-- Select Site --</option>
             </select>
         </div>
 
         <div class="helper-text">
-            <b>Workflow:</b> Select a verified site to compile a desk research report. Use the portals below to cross-reference coordinates and place names against national land and environmental registries.
+            <b>Research Workflow:</b> Select a verified site to generate a comprehensive report. Use the integrated portals to verify planning history, land title, and environmental constraints.
         </div>
     </div>
 
     <div id="workspace">
         <div id="report-container" class="report-sheet">
             <div class="empty-state">
-                <h2 style="color:#bdc3c7">SYSTEM READY</h2>
-                <p>Awaiting site selection from Inventory Sidebar</p>
+                <h2 style="color:#bdc3c7">RESEARCH DESK ACTIVE</h2>
+                <p>Awaiting site selection to compile data</p>
             </div>
         </div>
     </div>
 
     <script>
-        // --- 1. FULL DATASET ---
         const churchData = [
             { id: 1, name: "St. Kevin's Kitchen", coords: [53.0101, -6.3298], bucket: "Cistercian", sign: "Intact stone roof; study for thermal mass and vaulted geometry." },
             { id: 2, name: "Mellifont Abbey", coords: [53.7441, -6.4651], bucket: "Cistercian", sign: "First Cistercian site in Ireland; study for the Lavabo (octagonal geometry)." },
-            { id: 3, name: "Jerpoint Abbey", coords: [52.5108, -7.1578], bucket: "Cistercian", sign: "Significant sculptural cloister; study for late-medieval arcade detailing." },
             { id: 24, name: "St. Michael's Creeslough", coords: [55.1201, -7.9054], bucket: "Modernist", sign: "Fan-plan with mountain-peak roofline. Site-responsive icon by Liam McCormick." },
             { id: 25, name: "St. Aengus, Burt", coords: [55.0336, -7.4647], bucket: "Modernist", sign: "Circular plan inspired by Grianan of Aileach. Masterpiece of light and form." },
             { id: 100, name: "St. Anne’s Shandon", coords: [51.9031, -8.4751], bucket: "Parish", sign: "The 'Four Faced Liar'; study for iconic campanile and sound integration." }
+            // Add remaining sites here
         ];
 
-        // --- 2. INITIALIZATION ---
         function init() {
             const select = document.getElementById('site-selector');
             churchData.sort((a,b) => a.name.localeCompare(b.name)).forEach(s => {
@@ -249,7 +166,6 @@
             });
         }
 
-        // --- 3. REPORT GENERATOR ---
         function loadReport(id) {
             if (!id) return;
             const s = churchData.find(x => x.id == id);
@@ -259,25 +175,31 @@
                 <div class="report-header">
                     <div>
                         <h1 style="margin:0; font-size:32px; letter-spacing:-1px;">${s.name}</h1>
-                        <p style="margin:5px 0 0 0; color:var(--accent); font-weight:bold; font-size:12px; letter-spacing:1px;">DESK RESEARCH REPORT</p>
+                        <p style="margin:5px 0 0 0; color:var(--accent); font-weight:bold; font-size:12px; letter-spacing:1px;">SITE RESEARCH REPORT</p>
                     </div>
                     <div style="text-align:right">
-                        <div style="font-weight:bold; font-size:14px;">#SITE-${s.id}</div>
-                        <div style="color:#95a5a6; font-size:11px;">FILE GENERATED: ${new Date().toLocaleDateString()}</div>
+                        <div style="font-weight:bold; font-size:14px;">REF: #SITE-${s.id}</div>
+                        <div style="color:#95a5a6; font-size:11px;">COMPILED: ${new Date().toLocaleDateString()}</div>
                     </div>
                 </div>
 
-                <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:2px; color:var(--navy); margin-bottom:20px;">I. National Search Portals</h3>
-                <p style="font-size:13px; color:#555; margin-bottom:20px; font-style:italic;">Note: Use Coordinates <b>[${s.coords[0]}, ${s.coords[1]}]</b> or Place Name <b>"${s.name}"</b> to search the portals below:</p>
-                
+                <span class="portal-section-title">I. Statutory Planning Records</span>
+                <div class="portal-grid">
+                    <a href="https://www.myplan.ie/national-planning-application-map/" target="_blank" class="portal-card p-plan">
+                        <span class="portal-title" style="color:#e74c3c;">MYPLAN.IE // NATIONAL PLANNING MAP</span>
+                        <span class="portal-desc">Input Coordinates [${s.coords[0]}, ${s.coords[1]}] to query planning history and development refusals.</span>
+                    </a>
+                </div>
+
+                <span class="portal-section-title">II. Land & Environmental Portals</span>
                 <div class="portal-grid">
                     <a href="https://www.landdirect.ie/" target="_blank" class="portal-card p-land">
                         <span class="portal-title" style="color:#005596;">LANDDIRECT.IE</span>
-                        <span class="portal-desc">Land Registry & Property Title Search</span>
+                        <span class="portal-desc">Land Registry & Title Search</span>
                     </a>
                     <a href="https://www.floodinfo.ie/map/floodmaps/" target="_blank" class="portal-card p-flood">
                         <span class="portal-title" style="color:#007a3d;">FLOODMAPS.IE</span>
-                        <span class="portal-desc">Environmental Risk & OPW Data</span>
+                        <span class="portal-desc">OPW Flood Risk Infrastructure</span>
                     </a>
                     <a href="https://www.arcgis.com/apps/webappviewer/index.html?id=3ae19cc156bf4706a929304bf8fcc4f6" target="_blank" class="portal-card p-hist">
                         <span class="portal-title" style="color:#8e735b;">GEOHIVE HISTORIC</span>
@@ -285,28 +207,23 @@
                     </a>
                     <a href="http://gis.teagasc.ie/soils/map.php" target="_blank" class="portal-card p-soil">
                         <span class="portal-title" style="color:#5d8233;">TEAGASC SOILS</span>
-                        <span class="portal-desc">Subsurface & Foundation Data</span>
+                        <span class="portal-desc">Soil Classification & Foundations</span>
                     </a>
                 </div>
 
-                <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:2px; color:var(--navy); margin-top:50px;">II. Geographic Specifications</h3>
+                <span class="portal-section-title">III. Geographic Specifications</span>
                 <table>
                     <tr><td class="label">Coordinate Pair</td><td style="font-family:monospace; font-weight:bold;">${s.coords[0]}, ${s.coords[1]}</td></tr>
                     <tr><td class="label">Building Typology</td><td>Existing ${s.bucket} Structure</td></tr>
                     <tr><td class="label">Inventory Status</td><td>Verified Heritage Record</td></tr>
-                    <tr><td class="label">Regional Context</td><td>Ireland Geospatial Sector</td></tr>
                 </table>
 
-                <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:2px; color:var(--navy); margin-top:50px;">III. Desk Research Notes</h3>
+                <span class="portal-section-title">IV. Desk Research Notes</span>
                 <div class="field-notes">
-                    "This site is identified as a primary architectural precedent within the ${s.bucket} classification. Initial desk research highlights: ${s.sign}"
+                    "This precedent is categorized under the ${s.bucket} typology. Strategic research focus: ${s.sign}"
                 </div>
 
                 <button class="generate-btn" onclick="window.print()">Generate Report PDF</button>
-
-                <div style="margin-top:100px; padding-top:20px; border-top:1px solid #eee; text-align:center; font-size:10px; color:#bdc3c7; letter-spacing:1px;">
-                    OFFICIAL SITEVAULT 2026 ARCHIVE DOCUMENT • FOR ACADEMIC USE ONLY
-                </div>
             `;
         }
 
