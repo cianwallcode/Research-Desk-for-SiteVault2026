@@ -214,7 +214,7 @@
         </div>
 
         <div class="helper-text">
-            <b>Workflow:</b> Select a verified site from the database to generate a technical desk research report. Use the portal links to cross-reference national land and environmental registries.
+            <b>Workflow:</b> Select a verified site to compile a desk research report. Use the portals below to cross-reference coordinates and place names against national land and environmental registries.
         </div>
     </div>
 
@@ -236,7 +236,6 @@
             { id: 24, name: "St. Michael's Creeslough", coords: [55.1201, -7.9054], bucket: "Modernist", sign: "Fan-plan with mountain-peak roofline. Site-responsive icon by Liam McCormick." },
             { id: 25, name: "St. Aengus, Burt", coords: [55.0336, -7.4647], bucket: "Modernist", sign: "Circular plan inspired by Grianan of Aileach. Masterpiece of light and form." },
             { id: 100, name: "St. Anne’s Shandon", coords: [51.9031, -8.4751], bucket: "Parish", sign: "The 'Four Faced Liar'; study for iconic campanile and sound integration." }
-            // Add your other sites here in the same format
         ];
 
         // --- 2. INITIALIZATION ---
@@ -269,6 +268,7 @@
                 </div>
 
                 <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:2px; color:var(--navy); margin-bottom:20px;">I. National Search Portals</h3>
+                <p style="font-size:13px; color:#555; margin-bottom:20px; font-style:italic;">Note: Use Coordinates <b>[${s.coords[0]}, ${s.coords[1]}]</b> or Place Name <b>"${s.name}"</b> to search the portals below:</p>
                 
                 <div class="portal-grid">
                     <a href="https://www.landdirect.ie/" target="_blank" class="portal-card p-land">
@@ -302,7 +302,7 @@
                     "This site is identified as a primary architectural precedent within the ${s.bucket} classification. Initial desk research highlights: ${s.sign}"
                 </div>
 
-                <button class="generate-btn" onclick="window.print()">Generate Technical PDF</button>
+                <button class="generate-btn" onclick="window.print()">Generate Report PDF</button>
 
                 <div style="margin-top:100px; padding-top:20px; border-top:1px solid #eee; text-align:center; font-size:10px; color:#bdc3c7; letter-spacing:1px;">
                     OFFICIAL SITEVAULT 2026 ARCHIVE DOCUMENT • FOR ACADEMIC USE ONLY
